@@ -1,15 +1,27 @@
 
 package com.mycompany.figuras;
 
-import. java
+import java.awt.Color;
+import java.awt.Graphics;
+
 
 public class formas extends javax.swing.JFrame {
-
-    /**
-     * Creates new form formas
-     */
+    
+    Graphics g;
+    
     public formas() {
         initComponents();
+        
+        g=jPanel1.getGraphics();
+        
+        setSize(500,500);//establece el tamaño de la ventana
+        setTitle ("Figuras");//Establece titulo de la ventana
+        setLocation(200,100);//posicion inicial de la ventana
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);//establecemos la ventana en el centro
+        //setResizable(false);//establece si la ventana puede cambiar de tamalo o no
+        //setMinimumSize(new Dimension(200,200));//Establecemos el tamaño minimo
+        this.getContentPane().setBackground(new Color(153,102,255));//Establece color de la ventana
     }
 
     /**
@@ -71,7 +83,30 @@ public class formas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        jPanel1.update(g);
+        
+        g.setColor(Color.red);
+        g.fillOval(50, 50, 120, 120);
+        
+        g.setColor(Color.BLUE);
+        g.fillRect(180, 150, 100, 100);
+        
+        g.setColor(new Color(204,153,0));
+        g.drawLine(300, 30, 100, 30);
+        
+        g.setColor(Color.BLACK);
+        g.drawRect(180, 150, 100, 100);
+        g.drawOval(50, 50, 121, 121);
+        int [] vx2 = {350,400,300};
+        int [] vy2 = {80, 120,120};
+       g.drawPolygon(vx2, vy2, 3);
+        
+       
+        g.setColor(Color.GREEN);
+        int [] vx1 = {350,400,300};
+        int [] vy1 = {70, 120,120};
+       g.fillPolygon(vx1, vy1, 3);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
